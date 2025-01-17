@@ -6,6 +6,6 @@ public class Car {
     int speed = 0;
 
     public void status() {
-        System.out.println(make + model + speed);
+        System.out.println("Auto: " + make + model + speed);
     }
 }
