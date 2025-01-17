@@ -26,27 +26,33 @@ public class App {
 
         while (cont == true) {
             menuPrint();
-            switch (scanner.nextInt()) {
-                case 1:
-                    car.status();
-                    break;
+            switch (scanner.next()) {
+            case "1":
+                car.status();
+                break;
+            
+            case "2":
                 
-                case 2:
-
-                    break;
-                case 3:
-
-                    break;
-                case 4:
-
-                    break;
-                case 0:
-                    System.out.println("Kiitos ohjelman käytöstä.");
-                    break;
-                default:
-                    System.out.println("Syöte oli väärä");
-                    break;
-            }
+                break;
+            case "3":
+                car.speed += scanner.nextInt(); 
+                break;
+            case "4":
+                if (car.speed - scanner.nextInt() <= 0){
+                    car.speed = 0;
+                }
+                else {
+                    car.speed -= Integer.parseInt(scanner.nextLine());
+                }
+                break;
+            case "0":
+                System.out.println("Kiitos ohjelman käytöstä.");
+                System.exit(0);
+            default:
+                System.out.println("Syöte oli väärä");
+                break;
+            }           
+            
         }
     }
 }
