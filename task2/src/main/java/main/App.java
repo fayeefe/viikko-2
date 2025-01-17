@@ -12,11 +12,11 @@ public class App {
     }
 
     public static void menuPrint(){
-        System.out.println("1) Näytä auton tila");
-        System.out.println("2) Muokkaa auton merkkiä ja mallia");
+        System.out.println("1) Näytä auton tila" + "\n" + "2) Muokkaa auton merkkiä ja mallia" + "\n" + "3) Kiihdytä autoa" + "\n" + "4) Hidasta autoa" + "\n" + "0) Lopeta ohjelma");
+        /*System.out.println("2) Muokkaa auton merkkiä ja mallia");
         System.out.println("3) Kiihdytä autoa");
         System.out.println("4) Hidasta autoa");
-        System.out.println("0) Lopeta ohjelma");
+        System.out.println("0) Lopeta ohjelma"); */
     }
 
     public static void accellerate(Car car, Scanner scanner){
@@ -45,6 +45,7 @@ public class App {
     }
 
     public static void main(String[] args) {
+
         boolean cont = true;
         Car car  = new Car();
         Scanner scanner = new Scanner(System.in);
