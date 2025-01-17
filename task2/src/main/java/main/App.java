@@ -4,6 +4,13 @@ import java.util.Scanner;
 
 public class App {
 
+    public static void carInfo(Car car, Scanner scanner){
+        System.out.print("Anna auton merkki: ");
+        car.make = scanner.next();
+        System.out.print("Anna auton malli: ");
+        car.model = scanner.next();
+    }
+
     public static void menuPrint(){
         System.out.println("1) Näytä auton tila");
         System.out.println("2) Muokkaa auton merkkiä ja mallia");
@@ -12,38 +19,52 @@ public class App {
         System.out.println("0) Lopeta ohjelma");
     }
 
+    public static void accellerate(Car car, Scanner scanner){
+        System.out.print("Kuinka monta km/h haluat kiihdyttää? ");
+                int accelleration = scanner.nextInt();
+                if (accelleration < 0){
+                    System.out.println("Nopeuden täytyy olla positiivinen luku.");                    
+                }
+                else{
+                    car.speed += accelleration;
+                }   
+    }
+
+    public static void decelarate(Car car, Scanner scanner){
+        System.out.print("Kuinka monta km/h haluat hidastaa? ");
+                int givenValue = scanner.nextInt();
+                if (givenValue < 0){
+                    System.out.println("Nopeuden täytyy olla positiivinen luku.");
+                }
+                else if (car.speed - givenValue <= 0){
+                    car.speed = 0;
+                }
+                else {
+                    car.speed = car.speed - givenValue;
+                }
+    }
+
     public static void main(String[] args) {
         boolean cont = true;
         Car car  = new Car();
-        car.status();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Anna auton merkki: ");
-        car.make = scanner.next();
-        System.out.println("Anna auton malli: ");
-        car.model = scanner.next();
-        System.out.println("Anna auton nopeus: ");
+        carInfo(car, scanner);
+        System.out.print("Anna auton nopeus: ");
         car.speed = scanner.nextInt();
-
         while (cont == true) {
             menuPrint();
             switch (scanner.next()) {
             case "1":
                 car.status();
                 break;
-            
             case "2":
-                
+                carInfo(car, scanner);
                 break;
-            case "3":
-                car.speed += scanner.nextInt(); 
+            case "3":                
+                accellerate(car, scanner);
                 break;
             case "4":
-                if (car.speed - scanner.nextInt() <= 0){
-                    car.speed = 0;
-                }
-                else {
-                    car.speed -= Integer.parseInt(scanner.nextLine());
-                }
+                decelarate(car, scanner);
                 break;
             case "0":
                 System.out.println("Kiitos ohjelman käytöstä.");
