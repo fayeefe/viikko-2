@@ -11,6 +11,13 @@ public class App {
         car.model = scanner.next();
     }
 
+    public static void carInfoUpdate(Car car, Scanner scanner){
+        System.out.print("Anna uusi auton merkki: ");
+        car.make = scanner.next();
+        System.out.print("Anna uusi auton malli: ");
+        car.model = scanner.next();
+    }
+
     public static void menuPrint(){
         System.out.println("1) Näytä auton tila");
         System.out.println("2) Muokkaa auton merkkiä ja mallia");
@@ -57,7 +64,7 @@ public class App {
                 car.status();
                 break;
             case "2":
-                carInfo(car, scanner);
+                carInfoUpdate(car, scanner);
                 break;
             case "3":                
                 accellerate(car, scanner);
